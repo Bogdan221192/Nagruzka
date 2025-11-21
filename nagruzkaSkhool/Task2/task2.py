@@ -1,7 +1,9 @@
+import sys
 from decimal import *
 getcontext().prec = 40       # Set a new precision, возьмем с запасом, больше 38
 # Чтение данных из файла
-f1 = input('Введите путь к файлу с координатами центра и радиусами эллипса ')
+f1 = sys.argv[1]  # Файл с параметрами эллипса
+f2 = sys.argv[2]  # Файл с координатами точек
 
 try:
     with open(f1, "r") as file:
@@ -29,8 +31,6 @@ def calculate_point_position(c, d, a, b, x, y):
         return "0 - точка лежит на окружности"
     else:
         return "2 - точка снаружи."
-
-f2 = input('Введите путь к файлу с координатами точек ')
 points = []
 try:
     with open(f2, 'r') as f:
